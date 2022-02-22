@@ -4,6 +4,8 @@
       <div class="alert alert-ligt">
          <h1>{{ post.title }}</h1>
          <p>{{ post.text }}</p>
+          <p><a href="{{ post.ref }}" target="_blank"><button class="btn btn-warning">Источник</button>
+         </a></p>
           <span class="text-muted">Публикация:{{ post.date }}</span>
          {% if post.author %}
             <p><b> Автор:</b><mark>{{ post.author }}</mark></p>
