@@ -1,12 +1,10 @@
-{% extends 'blog/main.html'%}
+{% extends 'our_public/main.html'%}
 {% block main_section %}
-   {% for post in news %}
+   {% for post in Public %}
       <div class="alert alert-ligt">
          <h1>{{ post.title }}</h1>
          <p>{{ post.text }}</p>
-          <p><a href="{{ post.ref }}" target="_blank"><button class="btn btn-warning">Источник</button>
-         </a></p>
-          <span class="text-muted">{{ post.date|date:"j F Y, время: H: i: s" }}</span>
+          <span class="text-muted">{{ post.date|date:"j F Y, время: H: i" }}</span>
          {% if post.author %}
             <p><b> Автор:</b><mark>{{ post.author }}</mark></p>
          {% else %}
@@ -17,7 +15,7 @@
 {% endblock main_section %}
 
 {% block aside_news_section %}
-   <h3><b>Интересные статьи</b></h3>
+   <h3><b>Статьи земляков</b></h3>
                   <img src="https://present5.com/presentation/1/182446981_453939122.pdf-img/182446981_453939122.pdf-7.jpg" class="img-thumbnail">
                   <p>
                       <b>Ограничения в движении помешало креативному мышлению</b>
