@@ -1,7 +1,22 @@
 {% extends 'blog/main.html'%}
+{% load crispy_forms_tags %}
 {% block main_section %}
     <div class="form-section">
-        <h2>{{ user.username }}}}</h2>
+        <h2>Кабинет пользователя</h2>
+        <div class="d-flex text-muted pt-3">
+        <img class="mr-2 rounded" style="width: 80px; height: 64px;" src="{{ user.profile.img.url }}">
+        <p class="pb-3 mb-0 small lh-sm border-bottom">
+          <strong class="d-block text-gray-dark">@{{ user.username }}</strong>
+          <b>Email:</b>{{ user.email }}
+      </p>
+    </div>
+        <h3 class="mt-4">Изменить данные пользователя</h3>
+        <form method="POST"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ update_user|crispy }}
+            {{ img_profile|crispy }}
+            <button type="submit" class="btn btn-outline-warning">Обновить данные</button>
+        </form>
     </div>
 
 {% endblock main_section %}
