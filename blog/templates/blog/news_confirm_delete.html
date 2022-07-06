@@ -5,9 +5,10 @@
         <form method="POST">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-danger">Подтвердить удаление статьи</button>
-            <a href="{% url 'news-detail' object.id %}">Нет,отменить удаление</a>
+            <a href="{% url 'news-detail' object.id %}">Нет, отменить удаление</a>
         </form>
     </div>
+
 
 {% endblock main_section %}
 {% block aside_news_section %}
