@@ -16,13 +16,17 @@ class UserOurRegistration(UserCreationForm):
         fields = ['username', 'password1', 'password2','email']
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField()
 
     class Meta:
         model = User
         fields = ['username', 'email']
 
 class ProfileImage(forms.ModelForm):
+    def __init__(self, *args, **kwards):
+        super(ProfileImage, self).__init__(*args, **kwards)
+        self.fields['img'].label = 'Изображение профиля'
+
     class Meta:
         model = Profile
         fields = ['img']
